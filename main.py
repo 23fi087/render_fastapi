@@ -1,11 +1,16 @@
 from typing import Optional
 
 from fastapi import FastAPI
-from fastapi.responses import HTMLResponse #インポート
-import random  # randomライブラリを追加
+from fastapi.responses import HTMLResponse
+from pydantic import BaseModel # PydanticからBaseModelをインポート
+import random
 
 app = FastAPI()
 
+# POSTリクエストで受け取るJSONの型を定義するクラス
+# {"present": "プレゼントの内容"} という形式のJSONを受け付ける
+class Present(BaseModel):
+    present: str
 
 @app.get("/")
 async def root():
@@ -29,8 +34,10 @@ def omikuji():
         "小凶",
         "大凶"
     ]
+    # APIとしては、{"result": "大吉"} のようにJSON形式で返すのが一般的です
+    # random.choiceを使うと、リストからランダムに1つの要素を簡単に選べます
+    return {"result": random.choice(omikuji_list)}
 
-    return omikuji_list[random.randrange(10)]
 @app.get("/index")
 def index():
     html_content = """
@@ -39,7 +46,8 @@ def index():
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><課題9-1</title>
+    <!-- <title>の開始タグが余分だったので修正 -->
+    <title>課題9-1</title>
     
     <!-- Tailwind CSSを読み込みます -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -107,9 +115,12 @@ def index():
 
 </body>
 </html>
-
     """
     return HTMLResponse(content=html_content, status_code=200)
-    @app.post("/present")
-async def give_present(present):
-    return {"response": f"サーバです。メリークリスマス！ {present}ありがとう。お返しはキャンディーです。"}  # f文字列というPythonの機能を使っている
+
+# @app.post("/present") のインデントを修正
+@app.post("/present")
+# Pydanticで定義したPresentクラスを使い、リクエストボディを受け取る
+async def give_present(item: Present):
+    # f文字列を使って、受け取ったプレゼントの名前をメッセージに含める
+    return {"response": f"サーバです。メリークリスマス！ {item.present}ありがとう。お返しはキャンディーです。"}
