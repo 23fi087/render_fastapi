@@ -120,7 +120,5 @@ def index():
 
 # @app.post("/present") のインデントを修正
 @app.post("/present")
-# Pydanticで定義したPresentクラスを使い、リクエストボディを受け取る
-async def give_present(item: Present):
-    # f文字列を使って、受け取ったプレゼントの名前をメッセージに含める
-    return {"response": f"サーバです。メリークリスマス！ {item.present}ありがとう。お返しはキャンディーです。"}
+async def give_present(present):
+    return {"response": f"サーバです。メリークリスマス！ {present}ありがとう。お返しはキャンディーです。"}  # f文字列というPythonの機能を使っている
