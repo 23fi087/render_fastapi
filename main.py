@@ -39,7 +39,7 @@ def index():
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>シンプルなウェブページ</title>
+    <title><課題9-1</title>
     
     <!-- Tailwind CSSを読み込みます -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -63,20 +63,20 @@ def index():
 
         <!-- ヘッダーセクション -->
         <header class="text-center mb-12">
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-2">ウェブサイトへようこそ</h1>
-            <p class="text-lg text-gray-600">これはシンプルでクリーンなウェブページのテンプレートです。</p>
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-2">9-1</h1>
+            <p class="text-lg text-gray-600">こんにちは</p>
         </header>
 
         <!-- メインコンテンツセクション -->
         <main>
             <!-- カード形式のレイアウト -->
             <div class="bg-white rounded-lg shadow-lg p-8 md:p-12 mb-8">
-                <h2 class="text-2xl font-bold mb-4">このページについて</h2>
+                <h2 class="text-2xl font-bold mb-4">課題</h2>
                 <p class="mb-4">
-                    このページは、最新のウェブ技術であるTailwind CSSを使用して作成されています。レスポンシブデザインに対応しているため、パソコン、タブレット、スマートフォンなど、どのデバイスから見てもきれいに表示されます。
+                    課題9-1, 課題9-2に取り組み、必要なファイルをBoxにて提出してください。
                 </p>
                 <p>
-                    この下の部分を編集して、自己紹介や、あなたの作品、趣味など、好きな内容を自由に追加してみてください。
+                    好きな食べ物は唐揚げ。
                 </p>
             </div>
 
@@ -84,7 +84,7 @@ def index():
             <div class="grid md:grid-cols-2 gap-8">
                 <div class="bg-white rounded-lg shadow-lg p-8">
                     <h3 class="text-xl font-bold mb-3">セクション1</h3>
-                    <p>ここに内容を記述します。例えば、あなたの経歴やスキルなどを書くことができます。箇条書きを使っても見やすいでしょう。</p>
+                    <p>趣味はbasketball</p>
                     <ul class="list-disc list-inside mt-4">
                         <li>HTML & CSS</li>
                         <li>JavaScript</li>
@@ -93,7 +93,7 @@ def index():
                 </div>
                 <div class="bg-white rounded-lg shadow-lg p-8">
                     <h3 class="text-xl font-bold mb-3">セクション2</h3>
-                    <p>こちらのセクションには、趣味や好きなことについて書くのはどうでしょうか。写真などを追加すると、より魅力的なページになります。</p>
+                    <p>最近はマリオーカートで遊んでます</p>
                 </div>
             </div>
         </main>
